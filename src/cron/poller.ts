@@ -1,5 +1,6 @@
 import {logger} from '../Logger';
 import {wait} from '../Utilities';
+import {config} from '../config';
 
 export class Poller {
   constructor() {}
@@ -11,7 +12,7 @@ export class Poller {
     while (continueWithExecution) {
       logger.info('Starting iteration...');
 
-      await wait(1000);
+      await wait(config.poller.interval);
 
       logger.info('Ending iteration...');
     }
